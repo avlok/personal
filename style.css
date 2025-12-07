@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    padding: 2rem 1rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 2px solid #e0e0e0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+.social-links {
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.separator {
+    margin: 0 0.5rem;
+    color: #999;
+}
+
+main {
+    margin-top: 3rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #000;
+    text-transform: lowercase;
+}
+
+.bio p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: 0.75rem;
+}
+
+ul li a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+ul li a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1.5rem 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .bio p {
+        font-size: 1rem;
+    }
+}
+
