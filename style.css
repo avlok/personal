@@ -101,6 +101,42 @@ ul li a:hover {
     text-decoration: underline;
 }
 
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.video-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video-thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.video-title {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    color: #333;
+    text-align: center;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 1.5rem 1rem;
@@ -117,6 +153,11 @@ ul li a:hover {
 
     .bio p {
         font-size: 1rem;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
 

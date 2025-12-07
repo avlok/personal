@@ -21,15 +21,25 @@
 
         <main>
             <section class="bio">
-                <p>Currently CEO of AngelList ($4B+ fintech). Founder of Fastbite (acquired by Square), Founder of Rail (acquired for $200M).</p>
+                <p>Currently CEO of AngelList ($4B+ fintech). Founder of Fastbite (acquired by Square), Founding Exec Chairman of Rail (acquired for $200M).</p>
             </section>
 
             <section class="featured-videos">
                 <h2>featured videos</h2>
-                <ul>
-                    <li><a href="https://www.youtube.com/watch?v=DEvbDq6BOVM&t=1s" target="_blank" rel="noopener noreferrer">YouTube Video 1</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=1GTce7UusrQ&t=1084s" target="_blank" rel="noopener noreferrer">YouTube Video 2</a></li>
-                </ul>
+                <div class="video-grid">
+                    <a href="https://www.youtube.com/watch?v=DEvbDq6BOVM&t=1s" target="_blank" rel="noopener noreferrer" class="video-card" data-video-id="DEvbDq6BOVM">
+                        <img src="https://img.youtube.com/vi/DEvbDq6BOVM/maxresdefault.jpg" alt="YouTube Video 1" class="video-thumbnail">
+                        <div class="video-title">Loading...</div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=1GTce7UusrQ&t=1084s" target="_blank" rel="noopener noreferrer" class="video-card" data-video-id="1GTce7UusrQ">
+                        <img src="https://img.youtube.com/vi/1GTce7UusrQ/maxresdefault.jpg" alt="YouTube Video 2" class="video-thumbnail">
+                        <div class="video-title">Loading...</div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=5IXchGE_Dxw" target="_blank" rel="noopener noreferrer" class="video-card" data-video-id="5IXchGE_Dxw">
+                        <img src="https://img.youtube.com/vi/5IXchGE_Dxw/maxresdefault.jpg" alt="YouTube Video 3" class="video-thumbnail">
+                        <div class="video-title">Loading...</div>
+                    </a>
+                </div>
             </section>
 
             <section class="featured-articles">
@@ -40,6 +50,29 @@
             </section>
         </main>
     </div>
+    <script>
+        // Fetch video titles from YouTube oEmbed API
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoCards = document.querySelectorAll('.video-card[data-video-id]');
+            
+            videoCards.forEach(card => {
+                const videoId = card.getAttribute('data-video-id');
+                const titleElement = card.querySelector('.video-title');
+                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+                
+                fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(videoUrl)}&format=json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        titleElement.textContent = data.title;
+                        card.querySelector('.video-thumbnail').alt = data.title;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching video title:', error);
+                        titleElement.textContent = 'Video Title';
+                    });
+            });
+        });
+    </script>
 </body>
 </html>
 
